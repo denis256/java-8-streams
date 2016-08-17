@@ -8,7 +8,8 @@ repositories {
 }
 
 dependencies {
-	testCompile 'org.junit.jupiter:junit-jupiter-engine:5.0.0-M1'
+	testCompile 'org.junit.jupiter:junit-jupiter-engine:5.0.0-M2'
+	testCompile 'org.junit.vintage:junit-vintage-engine:4.12.0-M2'
 }
 
 tasks.withType(JavaCompile) {
