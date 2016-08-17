@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class UsersStreamTesting {
@@ -46,6 +47,14 @@ public class UsersStreamTesting {
         })
                 .forEach(userManager::remove);
     }
+
+    @Test
+    public void findUser() throws Exception {
+        Optional<User> adminUser = users.stream().filter(user -> user.getType() == UserType.ADMIN).findFirst();
+        adminUser.ifPresent(System.out::println);
+        adminUser.orElseThrow(Exception::new);
+    }
+
 
     // Map transforms the stream elements into something else
 
