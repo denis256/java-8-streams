@@ -6,7 +6,16 @@ public class User {
     private UserType type;
     private String login;
 
+    public static User of(UserType type, String login) {
+        return new User(type, login);
+    }
+
     public User() {
+    }
+
+    public User(UserType type, String login) {
+        this.type = type;
+        this.login = login;
     }
 
     public UserType getType() {
