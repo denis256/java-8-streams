@@ -5,17 +5,23 @@ public class User {
 
     private UserType type;
     private String login;
+    private Boolean active = true;
 
     public static User of(UserType type, String login) {
-        return new User(type, login);
+        return User.of(type, login, true);
+    }
+
+    public static User of(UserType type, String login, Boolean active) {
+        return new User(type, login, active);
     }
 
     public User() {
     }
 
-    public User(UserType type, String login) {
+    public User(UserType type, String login, Boolean active) {
         this.type = type;
         this.login = login;
+        this.active = active;
     }
 
     public UserType getType() {
@@ -34,12 +40,20 @@ public class User {
         this.login = login;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("User{");
-        sb.append("type=").append(type);
-        sb.append(", login='").append(login).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "User{" +
+                "type=" + type +
+                ", login='" + login + '\'' +
+                ", active=" + active +
+                '}';
     }
 }
